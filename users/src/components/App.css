@@ -1,0 +1,30 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+#root > * {
+  width: 100%;
+  max-width: 550px;
+}
+
+form {
+  margin-bottom: 30px;
+}
+
+.list-group-item {
+  display: flex !important;
+}
+
+.list-group-item > div:first-child {
+  margin-right: 15px;
+}
+
+.list-group-item span {
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 8px;
+}
