@@ -19,6 +19,23 @@ server.post('/api/users', (req, res) => {
 });
 
 // R - GET
+server.get('/api/users', (req, res) => {
+  db.find().then(
+    users => res.status(200).json(users),
+    error => res.status(500).json({ error: `The users information could not be retrieved; ${error}` })
+  );
+});
+
+server.get('/api/users/:id', (req, res) => {
+  const { id } = req.params;
+
+  db.findById(id).then(
+    user => Boolean(user)
+      ? res.status(200).json(user)
+      : res.status(404).json({ message: 'The user with the specified ID does not exist.' }),
+    error => res.status(500).json({ error: `The user information could not be retrieved; ${error}` })
+  );
+});
 
 // U - PUT
 
